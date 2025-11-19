@@ -1,0 +1,14 @@
+Cerebro is a local-first personal AI agent designed to run entirely on a user's computer.
+The core vision is to enable private document understanding without sending data to the cloud.
+Users can drop PDFs, notes, or entire folders and Cerebro will automatically ingest,
+chunk, embed, and index them into a local vector database.
+
+Key goals:
+- Full privacy, default offline mode
+- Instant semantic search over personal knowledge
+- Automated daily summaries of watched folders
+- RAG-based question answering across multiple documents
+- Optional use of cloud LLMs with explicit permission
+
+The app should feel fast, light, and trustworthy.
+The user should always feel in control of their data.
