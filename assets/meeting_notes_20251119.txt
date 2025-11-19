@@ -1,0 +1,23 @@
+
+Team Meeting – 14 Nov 2025
+
+Topics discussed:
+1. Document ingestion improvements:
+   - PDF extraction accuracy improved using PyMuPDF
+   - HTML and Markdown parsers added
+   - Next sprint will integrate OCR for scanned PDFs
+
+2. Automation Engine:
+   - Cron scheduler prototype works
+   - Need a UI for recurring tasks (daily, weekly, custom)
+   - Notifications tested on macOS and Windows
+
+3. AI Pipeline:
+   - Early RAG pipeline successful
+   - Retrieval improved by reducing chunk size to 600 tokens
+   - Testing multiple embedding models for speed vs quality
+
+Action items:
+- Build a status dashboard for indexing progress
+- Add manual re-index button
+- Write integration tests for the Python embedding service
