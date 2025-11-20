@@ -1,25 +1,26 @@
-import os
+import file_reader
+# chunks = [
+#     {
+#         "text": "chunk 1 text",
+#         "source_file": "meeting_notes_20251119.txt",
+#         "chunk_index": 0,
+#         "file_path": "/path/to/meeting_notes_20251119.txt"
+#     },
+#     {
+#         "text": "chunk 2 text", 
+#         "source_file": "meeting_notes_20251119.txt",
+#         "chunk_index": 1,
+#         "file_path": "/path/to/meeting_notes_20251119.txt"
+#     }
+# ]
 
-def read_files_in_folder(folder_path, allowed_extensions={'.txt', '.md'}):
-    """
-    Reads all text or markdown files in the given folder and returns a
-    dictionary mapping filenames to their contents.
+def chunk_text(source_file, file_data, chunk_size = 500, overlap = 50):
+    chunks_array = [file_data[i - overlap:i+chunk_size] for i in range(overlap, len(file_data), chunk_size)]
+    for chunks in chunks_array:
+        print(chunks)
+        print('\n\n\n')
+    return chunks_array
 
-    :param folder_path: Path to the folder to read files from.
-    :param allowed_extensions: Set of file extensions to include.
-    :return: Dict of {filename: file_contents}
-    """
-    files_data = {}
-    for filename in os.listdir(folder_path):
-        file_ext = os.path.splitext(filename)[1].lower()
-        if file_ext in allowed_extensions:
-            file_path = os.path.join(folder_path, filename)
-            try:
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    files_data[filename] = f.read()
-            except Exception as e:
-                # Could add logging here instead of print in real code
-                print(f"Could not read {file_path}: {e}")
-    return files_data
 
-read_files_in_folder('assets', allowed_extensions={'.txt', '.md'})
+files = file_reader.read_files_in_folder('../../assets')
+chunk_text('testing_learning_guide', files['testing_learning_guide.md'])
