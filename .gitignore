@@ -10,3 +10,8 @@ __pycache__/
 venv/
 .venv/
 
+# ChromaDB data files
+python-service/data/chroma_db/*.sqlite3
+python-service/data/chroma_db/*/
+!python-service/data/chroma_db/client.py
+
